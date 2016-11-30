@@ -53,8 +53,9 @@ class ShowWeather {
     void refresh_data() {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(activity);
         String location = preferences.getString(activity.getString(R.string.pref_cities_key),activity.getString(R.string.pref_cities_default));
+        String units = preferences.getString(activity.getString(R.string.pref_units_key),activity.getString(R.string.pref_units_default));
         FetchWeatherTask fetch_weather_data = new FetchWeatherTask();
-        fetch_weather_data.execute(location);
+        fetch_weather_data.execute(location, units);
     }
 
     private class FetchWeatherTask extends AsyncTask<String, Void, String[]> {
@@ -140,7 +141,7 @@ class ShowWeather {
 
             WeatherParser weatherParser= new WeatherParser();
             try {
-                return weatherParser.getWeatherDataFromJson(forecastJsonStr, numDays);
+                return weatherParser.getWeatherDataFromJson(forecastJsonStr, numDays, params[1]);
             }
             catch (JSONException e) {
                 Log.e(LOG_TAG, e.getMessage(), e);

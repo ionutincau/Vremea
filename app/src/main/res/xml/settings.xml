@@ -11,7 +11,7 @@
         android:title="@string/pref_units_label"
         android:summary="%s"
         android:key="@string/pref_units_key"
-        android:defaultValue="@string/pref_units_metric"
+        android:defaultValue="@string/pref_units_default"
         android:entries="@array/pref_units_options"
         android:entryValues="@array/pref_units_values" />
 

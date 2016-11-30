@@ -21,7 +21,7 @@ class WeatherParser {
         return day_of_the_week + ", " + day + " " + month;
     }
 
-    String[] getWeatherDataFromJson(String forecastJsonStr, int numDays) throws JSONException {
+    String[] getWeatherDataFromJson(String forecastJsonStr, int numDays, String units) throws JSONException {
 
         // These are the names of the JSON objects that need to be extracted.
         final String OWM_LIST = "list";
@@ -55,6 +55,13 @@ class WeatherParser {
             high = temperatureObject.getString(OWM_MAX);
             low = temperatureObject.getString(OWM_MIN);
 
+            //convert temperatures
+            if (units.equals("imperial")) {
+                double h = (Double.parseDouble(high) * 1.8) + 32;
+                double l = (Double.parseDouble(low) * 1.8) + 32;
+                high = Double.toString(Math.round(h * 100.0) / 100.0);
+                low = Double.toString(Math.round(h * 100.0) / 100.0);
+            }
             resultStrs[i] = day + " - " + description + " - " + high + "/" + low;
         }
 
