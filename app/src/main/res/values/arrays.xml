@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="pref_units_options">
+        <item>@string/pref_units_label_metric</item>
+        <item>@string/pref_units_label_imperial</item>
+    </string-array>
+
+    <string-array name="pref_units_values">
+        <item>@string/pref_units_metric</item>
+        <item>@string/pref_units_imperial</item>
+    </string-array>
+
+    <string-array name="pref_cities_options">
+        <item>@string/pref_cities_label_cluj</item>
+        <item>@string/pref_cities_label_zlatna</item>
+        <item>@string/pref_cities_label_alba</item>
+        <item>@string/pref_cities_label_cimislia</item>
+        <item>@string/pref_cities_label_satu_mare</item>
+        <item>@string/pref_cities_label_baia_mare</item>
+        <item>@string/pref_cities_label_tashkent</item>
+    </string-array>
+
+    <string-array name="pref_cities_values">
+        <item>@string/pref_cities_cluj</item>
+        <item>@string/pref_cities_zlatna</item>
+        <item>@string/pref_cities_alba</item>
+        <item>@string/pref_cities_cimislia</item>
+        <item>@string/pref_cities_satu_mare</item>
+        <item>@string/pref_cities_baia_mare</item>
+        <item>@string/pref_cities_tashkent</item>
+    </string-array>
+</resources>

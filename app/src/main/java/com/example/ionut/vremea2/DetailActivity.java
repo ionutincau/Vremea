@@ -7,7 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-public class DetailActivity extends Activity {
+class DetailActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

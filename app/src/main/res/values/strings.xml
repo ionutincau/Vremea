@@ -7,4 +7,28 @@
     <string name="inline_preferences" translatable="false">inline_preferences</string>
     <string name="title_checkbox_preference" translatable="false">title_checkbox_preference</string>
     <string name="summary_checkbox_preference" translatable="false">summary_checkbox_preference</string>
+
+    <string name="pref_units_label" translatable="false">Unitate de Masura</string>
+    <string name="pref_units_key" translatable="false">units</string>
+    <string name="pref_units_metric" translatable="false">metric</string>
+    <string name="pref_units_imperial" translatable="false">imperial</string>
+    <string name="pref_units_label_metric" translatable="false">Metric</string>
+    <string name="pref_units_label_imperial" translatable="false">Imperial</string>
+
+    <string name="pref_cities_label" translatable="false">Locatie</string>
+    <string name="pref_city_key" translatable="false">city</string>
+    <string name="pref_cities_label_cluj" translatable="false">Cluj-Napoca</string>
+    <string name="pref_cities_label_zlatna" translatable="false">Zlatna</string>
+    <string name="pref_cities_label_alba" translatable="false">Alba-Iulia</string>
+    <string name="pref_cities_label_cimislia" translatable="false">Cimislia</string>
+    <string name="pref_cities_label_satu_mare" translatable="false">Satu Mare</string>
+    <string name="pref_cities_label_baia_mare" translatable="false">Baia Mare</string>
+    <string name="pref_cities_label_tashkent" translatable="false">Tahkent</string>
+    <string name="pref_cities_cluj" translatable="false">681290</string>
+    <string name="pref_cities_zlatna" translatable="false">662161</string>
+    <string name="pref_cities_alba" translatable="false">686578</string>
+    <string name="pref_cities_cimislia" translatable="false">618406</string>
+    <string name="pref_cities_satu_mare" translatable="false">667873</string>
+    <string name="pref_cities_baia_mare" translatable="false">685826</string>
+    <string name="pref_cities_tashkent" translatable="false">1512569</string>
 </resources>

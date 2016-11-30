@@ -2,14 +2,25 @@
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <PreferenceCategory
-        android:title="@string/inline_preferences">
+    <CheckBoxPreference
+        android:key="checkbox_preference"
+        android:title="@string/title_checkbox_preference"
+        android:summary="@string/summary_checkbox_preference" />
 
-        <CheckBoxPreference
-            android:key="checkbox_preference"
-            android:title="@string/title_checkbox_preference"
-            android:summary="@string/summary_checkbox_preference" />
+    <ListPreference
+        android:title="@string/pref_units_label"
+        android:summary="%s"
+        android:key="@string/pref_units_key"
+        android:defaultValue="@string/pref_units_metric"
+        android:entries="@array/pref_units_options"
+        android:entryValues="@array/pref_units_values" />
 
-    </PreferenceCategory>
+    <ListPreference
+        android:title="@string/pref_cities_label"
+        android:summary="%s"
+        android:key="@string/pref_city_key"
+        android:defaultValue="@string/pref_cities_cluj"
+        android:entries="@array/pref_cities_options"
+        android:entryValues="@array/pref_cities_values" />
 
 </PreferenceScreen>
