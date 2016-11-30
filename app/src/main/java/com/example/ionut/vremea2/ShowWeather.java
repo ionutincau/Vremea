@@ -2,8 +2,10 @@ package com.example.ionut.vremea2;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -24,14 +26,15 @@ import java.util.List;
 
 class ShowWeather {
     private Activity activity;
-    private String[] data = { "Ionut","Eugeniu","George","Felix","Fazliddin",};
+    private String[] data = {};
     private ArrayAdapter<String> data_adapter;
 
     ShowWeather(Activity activity) {
         this.activity = activity;
+        show_list();
     }
 
-    View show_list() {
+    private View show_list() {
         List<String> data_list = new ArrayList<>(Arrays.asList(this.data));
         this.data_adapter = new ArrayAdapter<>(activity, R.layout.list_item, data_list);
         final ListView data_view = (ListView)this.activity.findViewById(R.id.list_view);
@@ -48,10 +51,10 @@ class ShowWeather {
     }
 
     void refresh_data() {
-        String city_id = "681290"; // Cluj-Napoca
-        //String city_id = "1512569"; // Tashkent
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(activity);
+        String location = preferences.getString(activity.getString(R.string.pref_cities_key),activity.getString(R.string.pref_cities_default));
         FetchWeatherTask fetch_weather_data = new FetchWeatherTask();
-        fetch_weather_data.execute(city_id);
+        fetch_weather_data.execute(location);
     }
 
     private class FetchWeatherTask extends AsyncTask<String, Void, String[]> {

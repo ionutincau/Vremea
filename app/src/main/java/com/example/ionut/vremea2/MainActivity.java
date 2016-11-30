@@ -14,7 +14,6 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         this.show_weather = new ShowWeather(this);
-        show_weather.show_list();
     }
 
     @Override
@@ -27,12 +26,18 @@ public class MainActivity extends Activity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.action_refresh) {
-            show_weather.refresh_data();
+            this.show_weather.refresh_data();
         }
         if (id == R.id.action_settings) {
             this.startActivity(new Intent(this, SettingsActivity.class));
         }
         return true;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        this.show_weather.refresh_data();
     }
 
 }

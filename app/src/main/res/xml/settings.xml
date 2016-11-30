@@ -18,8 +18,8 @@
     <ListPreference
         android:title="@string/pref_cities_label"
         android:summary="%s"
-        android:key="@string/pref_city_key"
-        android:defaultValue="@string/pref_cities_cluj"
+        android:key="@string/pref_cities_key"
+        android:defaultValue="@string/pref_cities_default"
         android:entries="@array/pref_cities_options"
         android:entryValues="@array/pref_cities_values" />
 

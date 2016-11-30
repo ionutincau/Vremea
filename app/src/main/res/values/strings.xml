@@ -16,7 +16,8 @@
     <string name="pref_units_label_imperial" translatable="false">Imperial</string>
 
     <string name="pref_cities_label" translatable="false">Locatie</string>
-    <string name="pref_city_key" translatable="false">city</string>
+    <string name="pref_cities_key" translatable="false">city</string>
+    <string name="pref_cities_default" translatable="false">Cluj-Napoca</string>
     <string name="pref_cities_label_cluj" translatable="false">Cluj-Napoca</string>
     <string name="pref_cities_label_zlatna" translatable="false">Zlatna</string>
     <string name="pref_cities_label_alba" translatable="false">Alba-Iulia</string>
