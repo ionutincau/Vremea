@@ -3,10 +3,7 @@
 
     <string name="action_refresh" translatable="false">Refresh</string>
     <string name="action_settings" translatable="false">Settings</string>
-
-    <string name="inline_preferences" translatable="false">inline_preferences</string>
-    <string name="title_checkbox_preference" translatable="false">title_checkbox_preference</string>
-    <string name="summary_checkbox_preference" translatable="false">summary_checkbox_preference</string>
+    <string name="action_map" translatable="false">Map</string>
 
     <string name="pref_units_label" translatable="false">Unitate de Masura</string>
     <string name="pref_units_key" translatable="false">units</string>
