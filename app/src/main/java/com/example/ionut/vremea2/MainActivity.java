@@ -29,8 +29,7 @@ public class MainActivity extends Activity {
             show_weather.refresh_data();
         }
         if (id == R.id.action_settings) {
-            Intent intent = new Intent(this, SettingsActivity.class);
-            this.startActivity(intent);
+            this.startActivity(new Intent(this, SettingsActivity.class));
         }
         return true;
     }
