@@ -1,6 +1,7 @@
 package com.example.ionut.vremea2;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -26,6 +27,10 @@ public class MainActivity extends Activity {
         int id = item.getItemId();
         if (id == R.id.action_refresh) {
             show_weather.refresh_data();
+        }
+        if (id == R.id.action_settings) {
+            Intent intent = new Intent(this, SettingsActivity.class);
+            this.startActivity(intent);
         }
         return true;
     }
