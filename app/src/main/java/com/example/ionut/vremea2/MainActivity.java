@@ -58,5 +58,4 @@ public class MainActivity extends Activity {
         super.onStart();
         this.show_weather.refresh_data();
     }
-
 }
