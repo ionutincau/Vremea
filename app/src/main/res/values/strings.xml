@@ -1,17 +1,17 @@
 <resources>
     <string name="app_name">Vremea</string>
 
-    <string name="action_refresh" translatable="false">Refresh</string>
-    <string name="action_settings" translatable="false">Settings</string>
-    <string name="action_map" translatable="false">Map</string>
+    <string name="action_refresh" translatable="false">Împrospătează</string>
+    <string name="action_settings" translatable="false">Mofturi</string>
+    <string name="action_map" translatable="false">Harta</string>
 
-    <string name="pref_units_label" translatable="false">Unitate de Masura</string>
+    <string name="pref_units_label" translatable="false">Cum să măsoară</string>
     <string name="pref_units_key" translatable="false">units</string>
     <string name="pref_units_default" translatable="false">metric</string>
     <string name="pref_units_metric" translatable="false">metric</string>
     <string name="pref_units_imperial" translatable="false">imperial</string>
-    <string name="pref_units_label_metric" translatable="false">Metric</string>
-    <string name="pref_units_label_imperial" translatable="false">Imperial</string>
+    <string name="pref_units_label_metric" translatable="false">Celsius</string>
+    <string name="pref_units_label_imperial" translatable="false">Farănhait</string>
 
     <string name="pref_cities_label" translatable="false">Locatie</string>
     <string name="pref_cities_key" translatable="false">city</string>
