@@ -10,6 +10,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.ionut.vremea2.data.WeatherContract;
+
 public class MainActivity extends Activity {
     ShowWeather show_weather;
 

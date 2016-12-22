@@ -60,7 +60,7 @@ class WeatherParser {
                 double h = (Double.parseDouble(high) * 1.8) + 32;
                 double l = (Double.parseDouble(low) * 1.8) + 32;
                 high = Double.toString(Math.round(h * 100.0) / 100.0);
-                low = Double.toString(Math.round(h * 100.0) / 100.0);
+                low = Double.toString(Math.round(l * 100.0) / 100.0);
             }
             resultStrs[i] = day + " - " + description + " - " + high + "/" + low;
         }
