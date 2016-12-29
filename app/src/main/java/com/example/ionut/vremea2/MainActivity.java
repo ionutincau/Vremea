@@ -12,11 +12,13 @@ import android.view.MenuItem;
 
 public class MainActivity extends Activity {
     ShowWeather show_weather;
+    private String mLocation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        this.mLocation = Utility.getPreferredLocation(this);
         this.show_weather = new ShowWeather(this);
     }
 
@@ -35,10 +37,6 @@ public class MainActivity extends Activity {
         if (id == R.id.action_settings) {
             this.startActivity(new Intent(this, SettingsActivity.class));
         }
-        if (id == R.id.database) {
-            Intent dbmanager = new Intent(this,AndroidDatabaseManager.class);
-            startActivity(dbmanager);
-        }
         if (id == R.id.action_map) {
             SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
             String location = preferences.getString(getString(R.string.pref_cities_key), getString(R.string.pref_cities_default));
@@ -54,12 +52,20 @@ public class MainActivity extends Activity {
                 Log.d(this.getClass().getSimpleName(), "Couldn't call " + location + ", no receiving apps installed!");
             }
         }
+        if (id == R.id.database) {
+            Intent dbmanager = new Intent(this,AndroidDatabaseManager.class);
+            startActivity(dbmanager);
+        }
         return true;
     }
 
     @Override
-    public void onStart() {
-        super.onStart();
-        this.show_weather.refresh_data();
+    public void onResume() {
+        super.onResume();
+        String location = Utility.getPreferredLocation(this);
+        if (location != null && !location.equals(mLocation)) {
+            this.show_weather.onLocationChanged();
+            this.mLocation = location;
+        }
     }
 }

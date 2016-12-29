@@ -7,6 +7,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
+import android.util.Log;
 
 public class WeatherProvider extends ContentProvider {
 
@@ -62,6 +63,8 @@ public class WeatherProvider extends ContentProvider {
         Cursor retCursor;
         switch (sUriMatcher.match(uri)) {// "weather/*/#"
             case WEATHER_WITH_LOCATION_AND_DATE: {
+                Log.e("Weather Provider", "weather with location and date: ");
+                Log.e("Weather Provider", "projection: " + projection);
                 retCursor = getWeatherByLocationSettingAndDate(uri, projection, sortOrder);
                 break;
             }
@@ -102,6 +105,9 @@ public class WeatherProvider extends ContentProvider {
     private Cursor getWeatherByLocationSettingAndDate(Uri uri, String[] projection, String sortOrder) {
         String locationSetting = WeatherContract.WeatherEntry.getLocationSettingFromUri(uri);
         long date = WeatherContract.WeatherEntry.getDateFromUri(uri);
+
+        Log.e("Weather Provider", "location: " + locationSetting);
+        Log.e("Weather Provider", "date: " + date);
 
         //location.location_setting = ? AND date = ?
         final String sLocationSettingAndDaySelection =

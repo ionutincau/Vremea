@@ -17,8 +17,9 @@ public class WeatherContract {
 
     public static long normalizeDate(long startDate) {
         GregorianCalendar calendar = new GregorianCalendar();
-        long offset = Long.parseLong(Integer.toString(calendar.get(Calendar.ZONE_OFFSET) / 1000));
-        return startDate - offset;
+        //long offset = Long.parseLong(Integer.toString(calendar.get(Calendar.ZONE_OFFSET) / 1000));
+        //return startDate - offset;
+        return startDate;
     }
 
     public static final class LocationEntry implements BaseColumns {
