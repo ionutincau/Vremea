@@ -10,8 +10,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.example.ionut.vremea2.data.WeatherContract;
-
 public class MainActivity extends Activity {
     ShowWeather show_weather;
 
@@ -36,6 +34,10 @@ public class MainActivity extends Activity {
         }
         if (id == R.id.action_settings) {
             this.startActivity(new Intent(this, SettingsActivity.class));
+        }
+        if (id == R.id.database) {
+            Intent dbmanager = new Intent(this,AndroidDatabaseManager.class);
+            startActivity(dbmanager);
         }
         if (id == R.id.action_map) {
             SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);

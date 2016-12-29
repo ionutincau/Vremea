@@ -4,6 +4,7 @@
     <string name="action_refresh" translatable="false">Împrospătează</string>
     <string name="action_settings" translatable="false">Mofturi</string>
     <string name="action_map" translatable="false">Harta</string>
+    <string name="database" translatable="false">Database</string>
 
     <string name="pref_units_label" translatable="false">Cum să măsoară</string>
     <string name="pref_units_key" translatable="false">units</string>
@@ -15,7 +16,7 @@
 
     <string name="pref_cities_label" translatable="false">Locatie</string>
     <string name="pref_cities_key" translatable="false">city</string>
-    <string name="pref_cities_default" translatable="false">Cluj-Napoca</string>
+    <string name="pref_cities_label_default" translatable="false">Cluj-Napoca</string>
     <string name="pref_cities_label_cluj" translatable="false">Cluj-Napoca</string>
     <string name="pref_cities_label_zlatna" translatable="false">Zlatna</string>
     <string name="pref_cities_label_alba" translatable="false">Alba-Iulia</string>
@@ -23,6 +24,7 @@
     <string name="pref_cities_label_satu_mare" translatable="false">Satu Mare</string>
     <string name="pref_cities_label_baia_mare" translatable="false">Baia Mare</string>
     <string name="pref_cities_label_tashkent" translatable="false">Tahkent</string>
+    <string name="pref_cities_default" translatable="false">681290</string>
     <string name="pref_cities_cluj" translatable="false">681290</string>
     <string name="pref_cities_zlatna" translatable="false">662161</string>
     <string name="pref_cities_alba" translatable="false">686578</string>

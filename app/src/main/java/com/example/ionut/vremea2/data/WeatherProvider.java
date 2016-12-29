@@ -1,6 +1,5 @@
 package com.example.ionut.vremea2.data;
 
-import android.annotation.TargetApi;
 import android.content.ContentProvider;
 import android.content.ContentValues;
 import android.content.UriMatcher;
@@ -61,7 +60,7 @@ public class WeatherProvider extends ContentProvider {
     @Override
     public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
         Cursor retCursor;
-        switch (sUriMatcher.match(uri)) {// "weather/*/*"
+        switch (sUriMatcher.match(uri)) {// "weather/*/#"
             case WEATHER_WITH_LOCATION_AND_DATE: {
                 retCursor = getWeatherByLocationSettingAndDate(uri, projection, sortOrder);
                 break;
@@ -120,23 +119,23 @@ public class WeatherProvider extends ContentProvider {
         );
     }
 
+    //location.location_setting = ? AND date >= ?
+    static final String sLocationSettingWithStartDateSelection =
+            WeatherContract.LocationEntry.TABLE_NAME+
+                    "." + WeatherContract.LocationEntry.COLUMN_LOCATION_SETTING + " = ? AND " +
+                    WeatherContract.WeatherEntry.COLUMN_DATE + " >= ? ";
+
+    //location.location_setting = ?
+    static final String sLocationSettingSelection =
+            WeatherContract.LocationEntry.TABLE_NAME+
+                    "." + WeatherContract.LocationEntry.COLUMN_LOCATION_SETTING + " = ? ";
+
     private Cursor getWeatherByLocationSetting(Uri uri, String[] projection, String sortOrder) {
         String locationSetting = WeatherContract.WeatherEntry.getLocationSettingFromUri(uri);
         long startDate = WeatherContract.WeatherEntry.getStartDateFromUri(uri);
 
         String[] selectionArgs;
         String selection;
-
-        //location.location_setting = ? AND date >= ?
-        final String sLocationSettingWithStartDateSelection =
-        WeatherContract.LocationEntry.TABLE_NAME+
-                "." + WeatherContract.LocationEntry.COLUMN_LOCATION_SETTING + " = ? AND " +
-                WeatherContract.WeatherEntry.COLUMN_DATE + " >= ? ";
-
-        //location.location_setting = ?
-        final String sLocationSettingSelection =
-                WeatherContract.LocationEntry.TABLE_NAME+
-                        "." + WeatherContract.LocationEntry.COLUMN_LOCATION_SETTING + " = ? ";
 
         if (startDate == 0) {
             selection = sLocationSettingSelection;
@@ -165,7 +164,6 @@ public class WeatherProvider extends ContentProvider {
 
         switch (match) {
             case WEATHER: {
-                normalizeDate(values);
                 long _id = db.insert(WeatherContract.WeatherEntry.TABLE_NAME, null, values);
                 if(_id > 0) returnUri = WeatherContract.WeatherEntry.buildWeatherUri(_id);
                 else throw new android.database.SQLException("Failed to insert row into " + uri);
@@ -221,7 +219,6 @@ public class WeatherProvider extends ContentProvider {
         if (null == selection) selection = "1";
         switch (match) {
             case WEATHER: {
-                normalizeDate(values);
                 rowsUpdated = db.update(WeatherContract.WeatherEntry.TABLE_NAME,
                         values,
                         selection,
@@ -244,13 +241,6 @@ public class WeatherProvider extends ContentProvider {
         return rowsUpdated;
     }
 
-    private void normalizeDate(ContentValues values) {
-        // normalize the date value
-        if (values.containsKey(WeatherContract.WeatherEntry.COLUMN_DATE)) {
-            long dateValue = values.getAsLong(WeatherContract.WeatherEntry.COLUMN_DATE);
-            values.put(WeatherContract.WeatherEntry.COLUMN_DATE, WeatherContract.normalizeDate(dateValue));
-        }
-    }
 
     @Override
     public int bulkInsert(Uri uri, ContentValues[] values) {
@@ -262,14 +252,14 @@ public class WeatherProvider extends ContentProvider {
                 int returnCount = 0;
                 try {
                     for (ContentValues value : values) {
-                        normalizeDate(value);
                         long _id = db.insert(WeatherContract.WeatherEntry.TABLE_NAME, null, value);
                         if (_id != -1) {
                             returnCount++;
                         }
                     }
                     db.setTransactionSuccessful();
-                } finally {
+                }
+                finally {
                     db.endTransaction();
                 }
                 getContext().getContentResolver().notifyChange(uri, null);
